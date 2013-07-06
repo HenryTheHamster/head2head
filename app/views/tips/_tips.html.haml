@@ -1,0 +1,21 @@
+- content_for :javascript do
+  = javascript_include_tag 'tips/tips'
+
+#tips
+  .row-fluid
+    .span10
+      %h2
+        Tips
+  .well{:'data-bind' => 'visible: !hasItems() && !findingItems()'}
+    There are currently no events in the list
+  %table.table.table-bordered.table-striped{:'data-bind' => 'visible: hasItems'}
+    %thead
+      %tr
+        %th Home Team
+        %th Away Team
+        %th Venue
+    %tbody{:'data-bind' => 'foreach: items'}
+      %tr
+        %td{:'data-bind' => "text: home_team"}
+        %td{:'data-bind' => "text: away_team"}
+        %td{:'data-bind' => "text: venue"}

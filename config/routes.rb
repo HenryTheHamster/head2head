@@ -2,6 +2,8 @@ Head2head::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+  mount JasmineRails::Engine => "/jasmine" if defined?(JasmineRails)
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -11,7 +13,9 @@ Head2head::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  resource :tips
+
+  get 'tips/all_matches' => 'tips#all_matches'
 
   # Sample resource route with options:
   #   resources :products do

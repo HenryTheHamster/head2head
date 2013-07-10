@@ -44,9 +44,9 @@ var RoundMatchesService = {
   },
   saveTip:function(match) {
     $.ajax({
-      url: '/matches/' + match.id,
+      url: '/matches',
       type: 'PUT',
-      data: { home_tip: match.home_selected() }
+      data: { id: match.id, home_tip: match.home_selected() }
     });
   }
 }

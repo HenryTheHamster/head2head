@@ -21,7 +21,7 @@ describe('RoundMatchesViewModel', function() {
     });
 
     it('should load any matches found', function() {      
-      expect(viewModel.tips().length).toBe(3);
+      expect(viewModel.matches().length).toBe(3);
     });
   });
 

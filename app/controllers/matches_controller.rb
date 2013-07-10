@@ -18,4 +18,11 @@ class MatchesController < ApplicationController
     render :json => matches.to_json
   end
 
+  def update
+    tip = Match.find(params[:id]).tip || Tip.create(:match_id => params[:id])
+    tip.attributes = {:home_tip => params[:home_tip]}
+    tip.save
+    render :action => :show
+  end
+
 end

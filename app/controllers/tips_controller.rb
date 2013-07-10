@@ -10,6 +10,7 @@ class TipsController < ApplicationController
       {
         :home_team => m.home_team,
         :away_team => m.away_team,
+        :home_win => m.home_win,
         :venue => m.venue
       }
     end

@@ -6,16 +6,14 @@
     .span10
       %h2
         Tips
-  .well{:'data-bind' => 'visible: !hasItems() && !findingItems()'}
-    There are currently no events in the list
-  %table.table.table-bordered.table-striped{:'data-bind' => 'visible: hasItems'}
+  %table.table.table-bordered.table-striped
     %thead
       %tr
-        %th Home Team
-        %th Away Team
         %th Venue
-    %tbody{:'data-bind' => 'foreach: items'}
+        %th Teams
+    %tbody{:'data-bind' => 'foreach: tips'}
       %tr
-        %td{:'data-bind' => "text: home_team"}
-        %td{:'data-bind' => "text: away_team"}
         %td{:'data-bind' => "text: venue"}
+        %td
+          %button.btn{:'data-bind' => 'text: home_team, click: selectHome, css: {active:home_selected}'}
+          %button.btn{:'data-bind' => 'text: away_team, click: selectAway, css: {active:away_selected}'}

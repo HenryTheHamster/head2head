@@ -1,38 +1,47 @@
-function TipsViewModel() {
+function RoundTipsViewModel() {
   var self = this;
 
-  self.path = '/tips/all_matches';
-  self.items = ko.observable([]);
-  self.findingItems = ko.observable(false);
+  self.loading = ko.observable(true);
+  self.tips = ko.observable([]);
 
-  self.hasItems = ko.computed(function() {
-    return self.items().length > 0;
-  });
 
-  var fetchItems = function() {
-    self.findingItems(true);
-    TipsService.get(self.path, function(matchingItems) {
-      self.findingItems(false);
-      self.items(matchingItems);
-    });
-  };
-
-  fetchItems();
+  self.refresh = function(tips) {
+    self.loading(false);
+    self.tips(tips.map(function(e) { return new TipViewModel(e); }));
+  }
+  
 }
 
-var TipsService = (function() {
+function TipViewModel(tip) {
+  var self = this;
 
-  var get = function(path, done) {
-    $.getJSON(path, { }, done);
-  };
+  self.home_team = tip.home_team;
+  self.away_team = tip.away_team;
+  self.venue = tip.venue;
+  self.home_win = tip.home_win;
+  self.home_selected = ko.observable(tip.home_selected);
+  self.away_selected = ko.observable(tip.away_selected);
 
-  return {
-    get: get
-  };
+  self.selectHome = function() {
+    self.home_selected(true);
+    self.away_selected(false);
+  }
 
-})();
+  self.selectAway = function() {
+    self.home_selected(false);
+    self.away_selected(true);
+  }
+
+}
+
+var RoundTipsService = {
+  getTips:function(done) {
+    $.getJSON('/tips/all_matches', {}, done);
+  }
+}
 
 $(function() {
-  var viewModel = new TipsViewModel();
-  ko.applyBindings(viewModel, document.getElementById('tips'));
+  var viewModel = new RoundTipsViewModel();
+  ko.applyBindings(viewModel, document.getElementById('tips-section'));
+  RoundTipsService.getTips(viewModel.refresh);
 });

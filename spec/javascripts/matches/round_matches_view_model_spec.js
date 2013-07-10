@@ -1,8 +1,8 @@
-describe('RoundTipsViewModel', function() {
+describe('RoundMatchesViewModel', function() {
   var viewModel;
 
   beforeEach(function() {
-    viewModel = new RoundTipsViewModel();
+    viewModel = new RoundMatchesViewModel();
   });
 
   describe('initially', function() {
@@ -20,7 +20,7 @@ describe('RoundTipsViewModel', function() {
       expect(viewModel.loading()).toBe(false);
     });
 
-    it('should load any findings supplied', function() {      
+    it('should load any matches found', function() {      
       expect(viewModel.tips().length).toBe(3);
     });
   });

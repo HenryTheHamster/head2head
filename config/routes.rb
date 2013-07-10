@@ -13,9 +13,9 @@ Head2head::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  resource :tips
+  resource :matches
 
-  get 'tips/all_matches' => 'tips#all_matches'
+  get 'matches/all_matches' => 'matches#all_matches'
 
   # Sample resource route with options:
   #   resources :products do

@@ -11,8 +11,8 @@ namespace :data do
     m5 = Match.create(:home_team => 'Brisbane', :away_team => 'Carlton', :venue => 'Gabba', :home_win => true)
 
     Tip.create(:match => m1, :home_tip => true)
-    Tip.create(:match => m1, :home_tip => true)
-    Tip.create(:match => m1, :home_tip => false)
+    Tip.create(:match => m2, :home_tip => true)
+    Tip.create(:match => m3, :home_tip => false)
 
   end
 end

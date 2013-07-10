@@ -1,17 +1,17 @@
 - content_for :javascript do
-  = javascript_include_tag 'tips/tips'
+  = javascript_include_tag 'matches'
 
-#tips
+#matches
   .row-fluid
     .span10
       %h2
-        Tips
+        Matches
   %table.table.table-bordered.table-striped
     %thead
       %tr
         %th Venue
         %th Teams
-    %tbody{:'data-bind' => 'foreach: tips'}
+    %tbody{:'data-bind' => 'foreach: matches'}
       %tr
         %td{:'data-bind' => "text: venue"}
         %td

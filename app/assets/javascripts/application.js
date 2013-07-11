@@ -11,7 +11,4 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require_tree .
-//= require twitter/bootstrap
-//= require jquery
-//= require jquery-ujs
 //= require vendor_javascripts

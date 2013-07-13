@@ -7,4 +7,5 @@ class Match < ActiveRecord::Base
   validates_presence_of :away_team
   validates_presence_of :venue
   validates_presence_of :played_at
+  validates_presence_of :round
 end

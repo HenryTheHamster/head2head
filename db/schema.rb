@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704115502) do
+ActiveRecord::Schema.define(:version => 20130713054344) do
 
   create_table "matches", :force => true do |t|
     t.string   "home_team"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20130704115502) do
     t.boolean  "home_win"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.datetime "played_at"
+    t.integer  "round"
   end
 
   create_table "tips", :force => true do |t|
